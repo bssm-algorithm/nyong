@@ -1,3 +1,5 @@
+package code_up;
+
 import java.util.Scanner;
 
 public class CodeUp_1928 {
