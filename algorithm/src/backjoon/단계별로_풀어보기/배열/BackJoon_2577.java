@@ -1,34 +1,24 @@
 package backjoon.단계별로_풀어보기.배열;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BackJoon_2577 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int A = sc.nextInt();
-        int B = sc.nextInt();
-        int C = sc.nextInt();
-        int cnt = 0;
 
-        int n = 1000000000;
-        ArrayList<Integer> arr = new ArrayList<>();
+        Scanner in = new Scanner(System.in);
 
-        Long result;
-        result = ((long) A * B * C);
+        int value = (in.nextInt() * in.nextInt() * in.nextInt());
+        String str = Integer.toString(value);
+        in.close();
 
-        while(true){
-            while(n != 0){
-                n = n/10;
-                arr.add((int) (result/n));
-                for(int i = 0; i < arr.size(); i ++){
-                    if (i == arr.get(i)){
-                        cnt ++;
-                        System.out.println(cnt);
-                    }
+        for (int i = 0; i < 10; i++) {
+            int count = 0;
+            for (int j = 0; j < str.length(); j++) {
+                if ((str.charAt(j) - '0') == i) {
+                    count++;
                 }
             }
-            break;
+            System.out.println(count);
         }
 
     }
