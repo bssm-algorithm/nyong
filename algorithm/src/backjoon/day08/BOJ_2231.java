@@ -9,7 +9,6 @@ public class BOJ_2231 {
 
         int min = 0;
 
-        // 198
         for (int i = 0; i < n; i ++){
             int sum = 0;
             int number = i;
