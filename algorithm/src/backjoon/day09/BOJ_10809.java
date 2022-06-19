@@ -15,10 +15,10 @@ public class BOJ_10809 {
         }
 
         // apple
-        for (int i = 0; i < word.length(); i ++){ // 5
-            char ch = word.charAt(i); // a, p, p, l, e
+        for (int i = 0; i < word.length(); i ++){
+            char ch = word.charAt(i);
 
-            if (arr.get(ch - 'a') == -1){ // a - a = 0, b - a = 1, c - a = 2, a - a
+            if (arr.get(ch - 'a') == -1){
                 arr.set(ch - 'a', i);
             }
         }
