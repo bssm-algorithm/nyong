@@ -9,21 +9,20 @@ public class BOJ_2231 {
 
         int min = 0;
 
+        // 198
         for (int i = 0; i < n; i ++){
-            int number = i;
             int sum = 0;
+            int number = i;
 
-            while(number != 0) {
-                sum += number % 10;
+            while (number != 0){
+                sum += number%10;
                 number /= 10;
             }
 
-            if(sum + i == n) {
-                min = i;
+            if (sum + i == n){
+                System.out.println(i);
                 break;
             }
         }
-
-        System.out.println(min);
     }
 }
