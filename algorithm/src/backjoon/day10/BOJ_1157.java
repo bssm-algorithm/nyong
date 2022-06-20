@@ -1,46 +1,35 @@
 package backjoon.day10;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class BOJ_1157 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String st = sc.nextLine().toUpperCase();
-        int cnt[] = new int[26];
-        int max = 0;
-        char result = 'c';
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = br.readLine().toUpperCase();
+        int[] arr = new int[26];
 
-        int index;
-        for(int i=0; i<st.length(); i++) {
-            index = st.charAt(i)-65;
-
-            cnt[index]++;
-            if(max < cnt[index]) {
-                max = cnt[index];
-                result = st.charAt(i);
-            } else if(max == cnt[index])
-                result = '?';
+        for (int i = 0; i < s.length(); i++) {
+            if ('A' <= s.charAt(i) && s.charAt(i) <= 'Z') {
+                arr[s.charAt(i) - 'A']++;
+            } else {
+                arr[s.charAt(i) - 'a']++;
+            }
         }
-        System.out.println(result);
+
+        int max = -1;
+        char c = '?';
+
+        for(int i = 0; i < 26; i ++){
+            if (arr[i] > max){
+                max = arr[i];
+                c = (char) (i + 65);
+            } else if (arr[i] == max){
+                c = '?';
+            }
+        }
+
+        System.out.println(c);
     }
 }
-
-//#include <iostream>
-//using namespace std;
-//
-//        int memo[31][31];
-//
-//        int bino(int n, int r)
-//        {
-//        if(r==0 || n==r) return 1;
-//        if(memo[n][r] != 0) return memo[n][r];
-//        memo[n][r] = bino(n-1, r-1) + bino(n-1, r);
-//        return memo[n][r];
-//        }
-//
-//        int main(void)
-//        {
-//        int n, r;
-//        cin >> n >> r;
-//        cout << bino(n, r) << endl;
-//        }
