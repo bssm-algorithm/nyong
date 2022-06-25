@@ -4,39 +4,36 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Objects;
+import java.util.Collections;
+import java.util.HashSet;
 
 public class BOJ_1764 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String[] s = br.readLine().split(" ");
-        int a = Integer.parseInt(s[0]);
-        int b = Integer.parseInt(s[1]);
+        String[] inputs = br.readLine().split(" ");
+        int n = Integer.parseInt(inputs[0]);
+        int m = Integer.parseInt(inputs[1]);
 
-        int cnt = 0;
+        HashSet<String> set = new HashSet<>();
 
-        String[] arr = new String[a + b];
-        ArrayList<String> list = new ArrayList<>();
-
-        for (int i = 0; i < a; i ++){
-            arr[i] = br.readLine();
+        for (int i = 0; i < n; i++) {
+            set.add(br.readLine());
         }
 
-        for (int i = a; i < a + b; i ++){
-            arr[i] = br.readLine();
+        ArrayList<String> result = new ArrayList<>();
 
-            for (int j = 0; j < a; j ++){
-                if (Objects.equals(arr[j], arr[i])){
-                    list.add(arr[j]);
-                    cnt ++;
-                }
+        for (int i = 0; i < m; i++) {
+            String tmp = br.readLine();
+            if(set.contains(tmp)){
+                result.add(tmp);
             }
         }
 
-        System.out.println(cnt);
+        Collections.sort(result);
 
-        for (String s1 : list){
-            System.out.println(s1);
+        System.out.println(result.size());
+        for (String s : result) {
+            System.out.println(s);
         }
     }
 }
